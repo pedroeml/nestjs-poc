@@ -6,30 +6,30 @@ import { ItemsService } from './service/items.service';
 @Controller('items')
 export class ItemsController {
 
-    constructor(private readonly service: ItemsService) { }
+  constructor(private readonly service: ItemsService) { }
 
-    @Get()
-    public findAll(): Promise<Item[]> {
-        return this.service.findAll();
-    }
+  @Get()
+  public findAll(): Promise<Item[]> {
+    return this.service.findAll();
+  }
 
-    @Get(':id')
-    public findOne(@Param('id') id: string): Promise<Item> {
-        return this.service.findOne(id);
-    }
+  @Get(':id')
+  public findOne(@Param('id') id: string): Promise<Item> {
+    return this.service.findOne(id);
+  }
 
-    @Post()
-    public create(@Body() itemDto: ItemDto): Promise<Item> {
-        return this.service.create(itemDto);
-    }
+  @Post()
+  public create(@Body() itemDto: ItemDto): Promise<Item> {
+    return this.service.create(itemDto);
+  }
 
-    @Delete(':id')
-    public delete(@Param('id') id: string): Promise<Item> {
-        return this.service.delete(id);
-    }
+  @Delete(':id')
+  public delete(@Param('id') id: string): Promise<Item> {
+    return this.service.delete(id);
+  }
 
-    @Put(':id')
-    public update(@Body() itemDto: ItemDto, @Param('id') id: string): Promise<Item> {
-        return this.service.update(id, itemDto);
-    }
+  @Put(':id')
+  public update(@Body() itemDto: ItemDto, @Param('id') id: string): Promise<Item> {
+    return this.service.update(id, itemDto);
+  }
 }

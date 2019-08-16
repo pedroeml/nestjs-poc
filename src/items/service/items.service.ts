@@ -7,26 +7,26 @@ import { Item } from '../interface/item.interface';
 @Injectable()
 export class ItemsService {
 
-    constructor(@InjectModel('Item') private readonly ItemModel: Model<Item>) { }
+  constructor(@InjectModel('Item') private readonly ItemModel: Model<Item>) { }
 
-    public async findAll(): Promise<Item[]> {
-        return await this.ItemModel.find();
-    }
+  public async findAll(): Promise<Item[]> {
+    return await this.ItemModel.find();
+  }
 
-    public async findOne(id: string): Promise<Item> {
-        return await this.ItemModel.findById(id);
-    }
+  public async findOne(id: string): Promise<Item> {
+    return await this.ItemModel.findById(id);
+  }
 
-    public async create(item: ItemDto): Promise<Item> {
-        const newItem: Item = new this.ItemModel(item);
-        return await newItem.save();
-    }
+  public async create(item: ItemDto): Promise<Item> {
+    const newItem: Item = new this.ItemModel(item);
+    return await newItem.save();
+  }
 
-    public async delete(id: string): Promise<Item> {
-        return await this.ItemModel.findByIdAndRemove(id);
-    }
+  public async delete(id: string): Promise<Item> {
+    return await this.ItemModel.findByIdAndRemove(id);
+  }
 
-    public async update(id: string, item: ItemDto): Promise<Item> {
-        return await this.ItemModel.findByIdAndUpdate(id, item, { new: true });
-    }
+  public async update(id: string, item: ItemDto): Promise<Item> {
+    return await this.ItemModel.findByIdAndUpdate(id, item, { new: true });
+  }
 }
