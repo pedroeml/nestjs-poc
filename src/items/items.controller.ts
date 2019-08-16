@@ -14,7 +14,7 @@ export class ItemsController {
     }
 
     @Get(':id')
-    public findOne(@Param('id') id): Promise<Item> {
+    public findOne(@Param('id') id: string): Promise<Item> {
         return this.service.findOne(id);
     }
 
@@ -24,12 +24,12 @@ export class ItemsController {
     }
 
     @Delete(':id')
-    public delete(@Param('id') id): Promise<Item> {
+    public delete(@Param('id') id: string): Promise<Item> {
         return this.service.delete(id);
     }
 
     @Put(':id')
-    public update(@Body() itemDto: ItemDto, @Param('id') id): Promise<Item> {
+    public update(@Body() itemDto: ItemDto, @Param('id') id: string): Promise<Item> {
         return this.service.update(id, itemDto);
     }
 }
